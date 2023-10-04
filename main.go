@@ -3,6 +3,7 @@ package main
 import (
 	"log"
 	//"uts/database"
+
 	"uts/database"
 	"uts/route"
 
@@ -10,7 +11,7 @@ import (
 )
 
 func main(){
-
+app:= fiber.New()
 
 	database.Connect()
 
@@ -25,7 +26,7 @@ func main(){
 	app.Get("/delete/:id_user", route.Delete)
 	app.Put("/update/:id_user", route.Update) 
 
-
+log.Fatal(app.Listen(":4000"))
 	
 	
 }
